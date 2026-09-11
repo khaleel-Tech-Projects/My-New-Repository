@@ -1,15 +1,12 @@
-import time
+import pywhatkit
+from datetime import datetime
 
-def countdown(t):
-    while t:
-        mins, secs = divmod(t, 60)
-        timer = '{:02d}:{:02d}'.format(mins,secs)
-        print(timer, end="\r")
-        time.sleep(1)
-        t -= 1
+now = datetime.now()
 
-    print('Timer completed!')
+chour = now.strftime("%H")
+mobile = input('Enter Mobile No of Receiver : ')
+message = input('Enter Message you wanna send : ')
+hour = int(input('Enter hour : '))
+minute = int(input('Enter minute : '))
 
-t = input('Enter the time in seconds: ')
-
-countdown(int(t))
+pywhatkit.sendwhatmsg(mobile,message,hour,minute)
